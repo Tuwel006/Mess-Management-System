@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="webpage">
+        {{>header}}
+
+
+
+    <main id="homeArea">
+        
+        <div id="bgimg" class="hero">
+            
+            <div class="overlayHero">
+            <h1>Welcome to Our Website</h1>
+            <p>Experience the best services with us.</p>
+        </div>
+            <div class="mealcount" id="mealValueArea">
+                <ul class="mealDescription" id="myList">
+                    <li class="meal-des">
+                        Your Meal Charge Amount:
+                        <div class="opmeal"><div class="mealValue" id="pMealAmount">00</div><div class="unit">Rupee</div></div> 
+                        
+                    </li>
+                    <li class="meal-des">
+                        Current Meal Charge:
+                        <div class="opmeal"><div class="mealValue" id="mcharge">00</div><div class="unit">Per Meal</div></div> 
+                        
+                    </li>
+                    <li class="diposite-amount meal-des">
+                        Diposited Amount: 
+                        <div class="opmeal"><div class="mealValue" id="damount">00</div><div class="unit">Rupee</div></div>
+                        
+                    </li>
+                    <li class="spend-amount meal-des">
+                        Spend Amount: 
+                        <div class="opmeal"><div class="mealValue" id="samount">00</div><div class="unit">Rupee</div></div>
+                        
+                    </li>
+                    <li class="total-meal meal-des">
+                        TOtal Meal: 
+                        <div class="opmeal"><div class="mealValue" id="tmeal">00<span class="unit"></span></div></div>
+                        
+                    </li>
+                </ul>
+                
+            </div>
+            <button id="upDownBtn"><i class="fa-solid fa-caret-down" style="color: rgb(238 255 219);  font-size: 3rem; position: relative; top: -15px"></i></button>
+        </div>
+
+        <div class="edit-options" id="editArea">
+            <div class="heading"><p>Edit Your Meal</p></div>
+            
+            <a href="/moneydeposit" class="money-deposit btn">Money Deposit</a>
+            <a href="/addmeal" class="addtodayMeal btn">Add Meal</a>
+            <a href="/spendmoney" class="moneySpend btn">Money Spend</a>
+        </div>
+        <div class="final-list" id="listArea">
+            <div class="hding"><p>See The Lists</p></div>
+            <a href="/seeMeal" class="meal-list btn2">See Meal List</a>
+            <a href="/seeDepositList" class="deposit-list btn2">Deposit List</a>
+            <a href="/seeSpendList" class="spend-list btn2">Spend List</a>
+        </div>
+    </main>
+
+    {{>footer}}
+    </div>
+    {{>menu}}
+    <script src="script.js"></script>
+</body>
+</html>

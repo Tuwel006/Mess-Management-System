@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="webpage">
+        {{>header}}
+
+    <main>
+        <div id="mealStartDate"></div>
+        <button id="{{this.group.groupName}}start">Start Meal</button>
+        <button id="{{this.group.groupName}}stop" class="hidden">Stop Meal</button>
+        <table id="mealTable" class="hidden">
+            <thead id="th-mealTable">
+                    <th>Sl No</th>
+                    <th>Name</th>
+                    <th id="dnHead">
+                        <div class="row1 centerAligne">D/N</div>
+                        <div class="centerAligne">Date</div>
+                        
+                    </th>
+                    <th id="mealhead">
+                        <div id="mealTitleCell" class="centerAligne bottom-border">Meal</div>
+                        
+                        <div id="dateHeadCells">
+                            
+                        </div>
+                        
+                    </th>
+                    <th id="totalMeal">Total Meal</th>
+                </thead>
+                <tbody id="mealTableBody">
+                    {{#each groupMembers}} 
+                    <tr id="mealTableRow-{{this.name}}" class="mealRows">
+                        <td  class="sl-no" id="slRow-{{this.name}}">{{increment @index}}</td>
+                        <td class="names-row" id="nameRow-{{this.name}}">{{this.name}}</td>
+                        <td class="dn-row" id="dnRow-{{this.name}}">
+                            <div class="row1">D</div>
+                            <div class="row2">N</div>
+                        </td>
+                        <td class="meal-row" id="meal-row-{{this.name}}">
+                            <div id="mealRow1-{{this.name}}" class="row1 mealCheck bottom-border">
+                                {{!-- <div id="dateDigit11" class="date-digit right-border centerAligne">
+                                    <input id="{{this.name}}d1" type="checkbox" class="mealCheck-box right-border centerAligne"></input>
+                                </div> --}}
+                            </div>
+                            
+                            <div id="mealRow2-{{this.name}}" class="row2 mealCheck">
+                                {{!-- <div id="dateDigit21" class="date-digit right-border centerAligne">
+                                    <input id="{{this.name}}n1" type="checkbox" class="n1 mealCheck-box right-border centerAligne"></input>
+                                </div> --}}
+                            </div>
+                        </td>
+                            
+                        
+                        <td id="totalMeal-{{this.name}}" class="totalMeal-row">Total Meal</td>
+                    </tr>
+                    
+                    {{/each}}
+                    <tr class="extra-row">
+                        <td class="extraClm" colspan="3"></td>
+                        <td>
+                            <div id="mealBtnCell" class="extra-cell">
+                            
+                            </div>
+                        </td>
+                        
+                        {{!-- <td>Extra dateHeadCell this is happen</td> --}}
+                    </tr>
+                    
+                </tbody>
+                <button>Save</button>
+        </table>
+
+    </main>
+    {{>footer}}
+    </div>
+    {{>menu}}
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {{>header}}
+
+    <main>
+        <div id="mealStartingDate"></div>
+        <button id="startMeal">Start Meal</button>
+        <table id="mealTable">
+            <thead id="th-moneyDeposit">
+                    <th>Sl No</th>
+                    <th>Name</th>
+                    <th id="dnHead">
+                        <li id="dnTitle">D/N</li>
+                        <li id="dateTitle">Date-></li>
+                        
+                    </th>
+                    <th id="mealhead">
+                        <li id="mealHeadCell">Meal</li>
+                        <li id="dateHeadCell"></li>
+                    </th>
+                    <th id="totalMeal">Total Meal</th>
+                </thead>
+                <tbody id="mealTableBody">
+
+                </tbody>
+        </table>
+
+    </main>
+    {{>footer}}
+    <script src="script.js"></script>
+</body>
+</html> --}}

@@ -1,0 +1,1336 @@
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+/*Slidding Function*/
+body{
+    text-align: center;
+}
+
+
+
+
+
+header{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.navigation{
+    height: 60px;
+    background-color: rgb(52, 64, 67);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+.title{
+    font-size: 2rem;
+    color:chocolate;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main{
+    height: 100%;
+    
+    font-size: 16px;
+    position: sticky;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    position: absolute;
+}
+/* #datetime{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    padding:0px 5px;
+    color: darkgreen;
+    background-color: rgb(215, 238, 113);
+    /* border: 1px solid; 
+} */
+.mealcountDefault{
+    height: max-content;
+    width: 80%;
+    text-align: center;
+    background-color: rgb(113, 174, 16);
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    position: absolute;
+    left: 10%;
+}
+
+.mealcount{
+    height: max-content;
+    width: 80%;
+    text-align: center;
+    background-color: rgb(113, 174, 16);
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+}
+.mealDescription{
+    height: max-content;
+    width: max-content;
+    padding: 10px;
+}
+.meal-des{
+    font-size: 3rem;
+    margin: 20px 0px 30px;
+    text-align: left;
+    display: flex;
+}
+
+.opmeal{
+    font-size: 3rem;
+    border: 1px solid;
+    padding: 2px 5px;
+    font-weight: bold;
+    height: max-content;
+    width: max-content;
+    display: flex;
+}
+.mealValue {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgb(224, 191, 0);
+}
+.unit{
+    font-weight: normal;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: end;
+    margin-left: 3px;
+}
+.edit-options{
+    background-color: rgb(153, 210, 204);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.edit-options .btn{
+    height: 40px;
+    font-size: 16px;
+    background-color: salmon;
+    margin: 8px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid red;
+    cursor: pointer;
+    width: 80%;
+    text-decoration: none;
+    color: black;
+}
+.edit-options .btn:hover{
+    background-color: rgb(218, 93, 79);
+    z-index: 2;
+    border: none;
+}
+.edit-options .heading{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+    font-size: 24px;
+    font-family:'Courier New', Courier, monospace;
+}
+.edit-options .heading p{
+    background-color: rgb(186, 55, 55);
+    padding: 5px 30px;
+    color: rgb(0, 255, 153);
+    font-weight: bold;
+}
+.final-list{
+    background-color: rgb(153, 210, 204);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.hding{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px 0px;
+    font-size: 22px;
+}
+.final-list .btn2{
+    height: 40px;
+    margin: 7px 0px;
+    background-color: rgb(212, 142, 92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    cursor: pointer;
+}
+.hding p{
+    background-color: dodgerblue;
+    padding: 5px 30px;
+    color: white;
+}
+.final-list .btn2:hover{
+    background-color: chocolate;
+}
+footer{
+    background-color: black;
+    height: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0px;
+    z-index: 100000;
+    width: 100%;
+}
+.hidden{
+    display: none;
+}
+
+
+
+
+/*Add to List Page*/
+.AddtoList{
+    padding: 5px 25px;
+}
+#name-title{
+    padding: 5px 0px;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 22px;
+}
+#nameList{
+    padding: 5px 0px;
+    font-size: 24px;
+    font-weight: bold;
+}
+.table-container{
+    width: 90%;
+    margin: 0 auto;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td{
+    border: 1px solid black;
+}
+.hero{
+    height: 440px;
+    width: 100%;
+    z-index: -1;
+    padding: 0px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-size: contain;
+    animation: slide 10s infinite;
+    background-position: right;
+    transition: transform 1s ease-in-out;
+}
+.hero.current {
+    z-index: 1;
+}
+
+#hero.next {
+    z-index: 2;
+    transform: translateX(100%);
+}
+
+.hero.slide-out {
+    transform: translateX(-100%);
+}
+
+.hero.slide-in {
+    transform: translateX(0);
+}
+
+
+
+/*Login Page*/
+.regBtn{
+    width: 150px;
+    height: 40px;
+    border: 2px solid skyblue;
+    border-radius: 8px;
+    background-color: blueviolet;
+    margin: 7px 0px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.loginBtn{
+    width: 150px;
+    height: 40px;
+    border: 2px solid skyblue;
+    border-radius: 8px;
+    background-color: blueviolet;
+    margin: 7px 0px;
+    padding: 5px;
+    cursor: pointer;
+}
+.btnTitle{
+    font-size: 2rem;
+    margin: 3px 0px;
+
+}
+
+.main{
+    height: 85vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regform{
+    height: max-content;
+    width: max-content;
+    background-color: rgb(233, 232, 232);
+    box-shadow: 5px 5px rgb(217, 216, 216);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-des{
+    width: 100%;
+    padding: 0px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-header-logo{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(6, 46, 58);
+    margin: 17px 0px 20px;
+    border: 2px solid rgb(6, 46, 58);
+    font-size: 3rem;
+}
+.form-header-logo i{
+    font-size: 1.55rem;
+}
+form{
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.formelm{
+    height: 35px;
+    width: 70%;
+    margin: 10px 0px;
+    display: flex;    
+    margin-right: 30px;
+}
+
+.formlogo{
+    height: 35px;
+    width: 35px;
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(5, 98, 119);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+.formlogo i{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;;
+}
+
+#memberName{
+    width: 82%;
+}
+input{
+    border-radius: none;
+}
+.border{
+    border: 2px solid rgb(13, 68, 140);
+}
+form button{
+    height: 37px;
+    width: 100px;
+    cursor: pointer;
+    background-color: rgb(17, 79, 123); 
+    border-radius: 4px;   
+    color: rgb(14, 210, 50);
+    margin: 30px 0px 10px;
+}
+.formtitle{
+    width: 100%;
+    font-weight: bold;
+    font-size: 2rem;
+    color: darkred;
+    /* padding: 12px 0px 15px; */
+    padding: 15px 0px;
+    border-bottom: 1px solid rgb(187, 187, 187);
+    display: flex;
+    justify-content: center;
+}
+.adminSelect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    
+}
+.adminSelect span{
+    font-size: 1.2rem;
+    padding: 0px 3px;
+}
+label{
+    cursor: pointer;
+}
+.regform .log{
+    width: 0.7rem;
+}
+#logout{
+    position: relative;
+    left: 500px;
+    font-size: 1.6rem;
+    text-decoration: none;
+    color: darkblue;
+}
+
+
+
+/*Money Deposit Page*/
+#th-moneyDeposit{
+    background-color: rgb(4, 67, 87);
+    color: rgb(32, 203, 180);
+    height: 45px;
+}
+#nameTableContainer{
+    width: 100%;
+}
+#table-moneyDeposit{
+    width: 100%;
+}
+.totalCell-moneyDeposit{
+    right: 0;
+}
+#addNew{
+    height: 40px;
+    width: 75px;
+    border: 2px solid rgb(195, 91, 91);
+    border-radius: 5px;
+    margin: 5px 7px;
+    padding: 3px;
+    background-color: rgb(72, 195, 199);
+    color: beige;
+}
+#inputName{
+    height: 35px;
+    width: 220px;
+    border: 3px solid rgb(170, 0, 255);
+    border-radius: 7px;
+    margin: 6px 0px 0px 8px;
+}
+#saveBtn{
+    height: 35px;
+    width: 58px;
+    border-radius: 6px;
+    background-color: cadetblue;
+    color: crimson;
+    margin: 6px 0px 0px 0px;
+}
+.moneyCellBtn{
+
+    background-color: rgb(24, 69, 42);
+
+    /* top: 2px; */
+    font-size: 0.6rem;
+    color: bisque;
+}
+.moneyCell{
+    height: max-content;
+    position: static;
+    right: 20px;
+}
+.nameCell{
+    height: 100%;
+    width: 130px;
+    background-color: lightblue;
+    color: darkblue;
+    font-weight: bold;
+    text-align: center;
+}
+.slCell{
+    height: 100%;
+    width: 50px;
+    background-color: darkslateblue;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+.newRow{
+    height: 40px;
+    max-height: max-content;
+}
+#startMeal{
+    Height: 100px;
+    width: 150px;
+    background-color: aquamarine;
+    color: darkblue;
+    cursor: pointer;
+    border: 4px solid rgb(170, 20, 200);
+    border-radius: 20px;
+    margin-left: 40%;
+    margin-top: 10px;
+    font-size: 26px;
+}
+#mealStartingDate{
+    margin-top: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+.mealStartProperty{
+    color: rgb(54, 54, 54);
+    border: 3px solid rgb(141, 114, 67);
+    padding: 5px;
+}
+.cellDn{
+    display: block;
+}
+.mealCellTable{
+    max-height: max-content;
+    display: block;
+    padding: 0px;
+    min-height: 100px;
+}
+.dnCell{
+    width: 30px;
+    height: 100%;
+    padding: 0px;
+    
+}
+
+.dnRow1{
+    border-bottom: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mealRow1{
+    border-bottom: 2px solid black;
+    min-height: 50px;
+}
+.dnRow2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#mealTable{
+    width: 100vw;
+    height: max-content;
+    margin: 5px 10px 50px;
+    position: sticky;
+}
+#mealhead{
+    width: max-content;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.bottom-border{
+    border-bottom: 1px solid black;
+}
+
+#dateTitle{
+    
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+}
+#dnHead{
+    font-size: 6px;
+    padding: 0;
+    width: 40px;
+    list-style: none;
+}
+#dnHead .row1{
+    border-bottom: 1px solid black;
+}
+/* #dnTitle{
+    border-bottom: 1px solid black;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+} */
+.centerAligne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+#dateHeadCells {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+}
+.right-border{
+    border-right: 1px solid black;
+    padding: 0;
+    margin: 0;
+}
+.date-digit{
+    height: 30px;
+    width: 40px;
+    color: aliceblue;
+    border-right: 3px solid green;
+}
+#totalMeal {
+    width: 70px;
+}
+
+#th-mealTable{
+    background-color: rgb(13, 209, 166);
+    color: rgb(13, 88, 139);
+}
+#mealTitleCell {
+    height: 30px;
+}
+.mealRows{
+    height: 50px;
+}
+
+.mealCheck{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.mealCheck-box{
+    height: 25px;
+    width: 40px;
+    padding: 0px 10px;
+    border-right: 1px solid rgb(87, 37, 45);
+}
+
+.depositRow{
+    height: 70px;
+}
+.moneyInput {
+    height: 30px;
+    width: 160px;
+    padding: 5px;
+    border: 2px solid rgb(105, 5, 151);
+    border-radius: 6px;
+}
+.moneySlot {
+    display: flex;
+    padding: 0px 2px;
+    height: 100%;
+    align-items: center;
+    width: 100px;
+    justify-content: center;
+}
+.displayMoney {
+    display: flex;
+    height: 100%;
+}
+.moneyCell {
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+.mealSaveArea {
+    display: flex;
+}
+/* .meal-row .last {
+    height: 100px;
+    
+}
+.mealRows .last {
+    overflow: hidden;
+    height: 50px;
+} */
+/* td {
+    height: 30px;
+} */
+/* tr:last-child td:not(:nth-child(4)) {
+    height: auto;
+} */
+
+.extra-row {
+    border: none;
+}
+.extraClm {
+    border: none;
+}
+.extra-cell {
+    height: 40px;
+    border: 2px solid black;
+    border-top: none;
+    display: flex;
+    align-items: center;
+}
+.mealBtnArea {
+    height: 100%;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sl-no{
+    height: auto;
+    width: 50px;
+    background-color: rgb(5, 59, 95);
+    color: rgb(10, 189, 114);
+    text-align: center;
+}
+.names-row{
+    height: auto;
+    width: 125px;
+    background-color: rgb(11, 77, 52);
+    color: deepskyblue;
+    text-align: center;
+}
+.dn-row .row2{
+    background-color:rgb(43, 33, 97);
+    height: 50%;
+    /* margin: 0;
+    padding: 0; */
+    border-bottom: 7.3px solid rgb(43, 33, 97);
+    padding-top: 6px;
+    text-align: center;
+    color: silver;
+}
+.dn-row{
+
+    height: 30px;
+}
+.dn-row .row1{
+    background-color: beige;
+    height: 50%;
+    border-top: 7.3px solid beige;
+    /* padding-bottom: 6px; */
+    text-align: center;
+}
+
+.meal-row .row2{
+    background-color:rgb(43, 33, 97);
+}
+.meal-row .row1{
+    background-color: beige;
+}
+.totalMeal-row{
+    background-color: rgb(0, 163, 196);
+    text-align: center;
+}
+.checkBox-color {
+    background-color: rgb(4, 255, 0);
+    color: white;
+    border: 2px solid red;
+    opacity: 2;
+}
+.spendRow {
+    height: 35px;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+}
+.dateCell {
+    width: 30px;
+    background-color: mediumaquamarine;
+    text-align: center;
+}
+#spendTable {
+    margin: 0px 20px 100px 10px;
+}
+#th-spend{
+    height: 40px;
+    background-color: darkseagreen;
+}
+.spendCell {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    height: 35px;
+    align-items: center;
+    color: firebrick;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    main{
+        height: 105%;
+        max-height: max-content;
+        font-size: 16px;
+        position: sticky;
+        overflow-x: auto;
+        overflow-y: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+    header{
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+    }
+    .navigation{
+        height: 60px;
+        background-color: rgb(52, 64, 67);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        position: sticky;
+        top: 0;
+    }
+
+    .title{
+        font-size: 26px;
+        color:chocolate;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    main{
+        min-height: 600px;
+        max-height: max-content;
+        font-size: 2rem;
+    }
+    /* #datetime{
+        font-size: 18px;
+        font-weight: bold;
+        text-align: right;
+        padding:0px 5px;
+        color: darkgreen;
+        background-color: rgb(215, 238, 113);
+        /* border: 1px solid; 
+    } */
+    .mealcount{
+        height: max-content;
+        width: 80%;
+        text-align: center;
+        background-color: rgb(113, 174, 16);
+        display: flex;
+        justify-content: center;
+        z-index: 100;
+    }
+    .mealDescription{
+        height: max-content;
+        width: max-content;
+        padding: 10px;
+    }
+    .meal-des{
+        font-size: 2rem;
+        margin: 20px 0px 30px;
+        text-align: left;
+        display: flex;
+    }
+    .opmeal{
+        font-size: 2rem;
+        border: 1px solid;
+        padding: 2px 5px;
+        font-weight: bold;
+        height: max-content;
+        width: max-content;
+        display: flex;
+    }
+    .mealValue {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .unit{
+        font-weight: normal;
+        font-size: 2rem;
+        display: flex;
+        align-items: end;
+        margin-left: 3px;
+    }
+    footer{
+        background-color: black;
+        height: 50px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        bottom: 0px;
+        width: 100vw;
+    }
+}
+
+/*Menu Area*/
+#menu-bar{
+    width:50px;
+    position: fixed;
+    font-size: 2.5rem;
+    left: 0;
+}
+#menuArea{
+    height: max-content;
+    width:365px;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: -365px;
+    top: 0px;
+    z-index: 10000;
+    transition: left 0.5s;
+}
+/* .menuBar{
+    display: flex;
+} */
+#cross{
+    font-size: 30px;
+    position: fixed;
+    left:370px;
+    top: 5px;
+    padding: 5px;
+    display: none;
+    z-index: 100;
+    cursor: pointer;
+}
+.menu-open{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    filter: brightness(0.2);
+}
+.bright{
+    filter: brightness(1);
+}
+.menu-signup{
+    height: 50px;
+    width: 100%;
+    background-color: #232f3e;
+    display: flex;
+    align-items: center;
+    padding-left: 31px;
+    color: #ffffff;
+    font-size: 19px;
+    font-weight: bold;
+}
+.profile{
+    height: 35px;
+    width: 35px;
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #285379;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+.menu-items{
+    display: flex;
+    flex-direction: column;
+}
+.menuElm{
+    border-bottom: 1px solid;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 5px 36px;
+}
+.menuElm p{
+    font-size: 18px;
+    color: #111111;
+    font-weight: bold;
+    margin: 0px 0px 5px;
+}
+.menuElm button{
+    font-size: 13px;
+    color: #627280;
+    height: 44px;
+    border: none;
+    background-color: transparent;
+    text-align: left;
+    display: flex;
+}
+.menuElm button span{
+    position: relative;
+    right: 20px;
+}
+
+
+
+
+.overlay{
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: fixed;
+}
+
+.focus{
+    z-index: 1000;
+    background-color: rgb(0, 255, 251);
+    color: rgb(255, 0, 0);
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.transition{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: black;
+    transition: height 1s ease-in-out;
+    z-index: 100;
+}
+button{
+    cursor: pointer;
+}
+
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 25%;
+    left: 45%;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+#homeArea{
+    position: absolute;
+}
+.present::before {
+    content: "\2714"; /* Unicode character for check mark */
+    color: green;
+    font-size: 23px;
+    background-color: rgba(255, 251, 251, 0.737);
+    border: none;
+    display: flex;
+    width: 2.1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.absent::before {
+    content: "\2716"; /* Unicode character for cross mark */
+    color: red;
+    font-size: 23px;
+    background-color: rgba(255, 251, 251,0.737);
+    border: none;
+    display: flex;
+    width: 2.1rem;
+    justify-content: center;
+    align-items: center;
+}
+.clmLine{
+    border: 2px solid blue;
+}
+.pRowStyle{
+    border: 5px solid rgb(255, 144, 0);
+    filter: contrast(1000);
+}
+#upDownBtn{
+    height: 20px;
+    width: 80px;
+    background-color: green;
+    z-index: 1000;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#mealValueArea {
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+#myList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#myList li {
+    padding: 2px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    margin: 10px;
+}
+#mealValueArea {
+    max-height: 40px;
+}
+
+/* Media query for tablets and laptops */
+@media (min-width: 768px) {
+    #mealValueArea {
+        max-height: 69px;
+    }
+}
+.hero{
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    overflow: hidden;
+    z-index: -10;
+}
+@keyframes slide {
+    0% { background-position: right; }
+    50% { background-position: center; }
+    100% { background-position: left; }
+}
+.overlayHero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+    font-size: 10rem;
+}
+.overlayHero p{
+    font-size: 2.5rem;
+    width: 104%;
+    color: rgb(189, 255, 185);
+}
+.overlayHero h1{
+    font-size: 3rem;
+    color: aqua;
+    margin-top: 44px;
+    width: 104%;
+}
+button{
+    cursor: pointer;
+}
+.image-slide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 440px;
+    background-size: cover;
+    background-position: center;
+    transition: right 1s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+    /*Home page*/
+    main{
+        height: 100%;
+        max-height: max-content;
+        font-size: 16px;
+        position: sticky;
+        overflow-x: auto;
+        overflow-y: auto;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+    header{
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+    }
+    .navigation{
+        height: 60px;
+        background-color: rgb(52, 64, 67);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        position: sticky;
+        top: 0;
+    }
+    .title{
+        font-size: 26px;
+        color:chocolate;
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    main{
+        min-height: 600px;
+        max-height: max-content;
+        font-size: 1rem;
+    }
+    /* #datetime{
+        font-size: 18px;
+        font-weight: bold;
+        text-align: right;
+        padding:0px 5px;
+        color: darkgreen;
+        background-color: rgb(215, 238, 113);
+        /* border: 1px solid; 
+    } */
+    
+    .mealcount{
+        height: max-content;
+        width: 70%;
+        text-align: center;
+        background-color: rgb(113, 174, 16);
+        display: flex;
+        justify-content: center;
+        z-index: 100;
+    }
+    .mealDescription{
+        height: max-content;
+        width: max-content;
+        padding: 10px;
+    }
+    .meal-des{
+        font-size: 1rem;
+        margin: 20px 0px 30px;
+        text-align: left;
+        display: flex;
+    }
+
+    .opmeal{
+        font-size: 1rem;
+        border: 1px solid;
+        padding: 2px 5px;
+        font-weight: bold;
+        height: max-content;
+        width: max-content;
+        display: flex;
+    }
+    .mealValue {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .unit{
+        font-weight: normal;
+        font-size: 1rem;
+        display: flex;
+        align-items: end;
+        margin-left: 3px;
+    }
+
+    .overlayHero {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        margin-top: 10px;
+    }
+   
+    .overlayHero h1{
+        font-size: 2.3rem;
+        width: 443px;
+        position: absolute;
+        top: -554%;
+        left: 1%;
+        color: aqua;
+    }
+    .overlayHero p{
+        font-size: 1.8rem;
+        position: relative;
+        top: -60px;
+        left: 3px;
+        width: 460px;
+        color: rgb(189, 255, 185);
+        
+    }
+    #menuArea{
+        height: 90vh;
+        width: 50vw;
+        font-size: 0.6rem;
+    }
+}
+.webpage{
+    height: 100%;
+    width: 100%;
+}
+#otpBtn{
+    margin: 0;
+    position: relative;
+    bottom: 279px;
+    left: 77px;
+}
+#otpArea{
+    position: relative;
+    left: -38px;
+    width: 53%;
+}
+#sunmitBtn{
+    margin: 0;
+}
+#loginLink{
+    padding: 0px 5px;
+}
+#otpInput{
+    width: 100%;
+}
+.pageLoader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    position: fixed;
+    top: 45%;
+    left: 45%;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .smBox{
+    height: 25px;
+    width: 25px;
+    background-color: white;
+  }

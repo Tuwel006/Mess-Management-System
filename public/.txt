@@ -1,0 +1,490 @@
+// if(currPath == '/addmeal') {
+//     const mealStartDate = document.getElementById('mealStartingDate');
+//     const startMealBtn = document.getElementById('startMeal');
+//     const mealTable = document.getElementById('mealTable');
+//     const mealTableBody = document.getElementById('mealTableBody');
+
+
+//             function displyStartDate() {
+//                 startMealBtn.classList.add('hidden');
+//                 const currentDate = new Date();
+
+//             const day = currentDate.getDate();
+//             const month = currentDate.getMonth() + 1; // Months are zero-based, so add 1 for the correct month.
+//             const year = currentDate.getFullYear();
+//             const myDate = `${day}/ ${month}/ ${year}`;
+
+
+//             mealStartDate.textContent = myDate;
+//             mealStartDate.classList.add('mealStartProperty');
+
+//             }
+//             displyStartDate();
+
+
+//             async function fetchAndDisplayMeal() {
+//                 try {
+//                     const response = await fetch('/getMembers');
+//                     if(response.ok) {
+//                         const data = await response.json();
+//                         const existMembers = data.groupMembers;
+//                         let totalMealCell = document.getElementById('totalMeal');
+
+//                         existMembers.forEach((member, index) => {
+//                             console.log(member.name);
+//                             const newRow = mealTableBody.insertRow();
+//                             const slCell = newRow.insertCell(0);
+//                             const nameCell = newRow.insertCell(1);
+//                             let dnCell = newRow.insertCell(2);
+//                             let mealCell = newRow.insertCell(-1);
+//                             totalMealCell = newRow.insertCell(-1);
+
+//                             // slCell.classList.add('slCell');
+//                             // nameCell.classList.add('nameCell');
+//                             console.log('One more time'+member.name);
+//                             dnCell.className = 'dnCell';
+
+
+
+//                             slCell.textContent = index+1;
+//                             slCell.className = 'slCell';
+//                             nameCell.textContent = member.name;
+//                             nameCell.className = 'nameCell';
+//                             newRow.className = 'newRow';
+//                             mealCell.className = 'mealCellTable';
+
+
+//                             // const ntable = document.createElement('table');
+//                             // const clm = document.createElement('tr');
+//                             // ntable.appendChild(clm);
+//                             // mealCell.appendChild(clm);
+//                             // setInterval(() => {
+//                             //     const currDate = new Date();
+//                             //     if(currDate.getHours() === 0 && currDate.getMinutes() === 0) {
+//                             //         const clm = document.createElement('td');
+//                             //         mealCell.appendChild(clm);
+//                             //     }
+//                             // }, 60000);
+
+
+
+
+
+//                             const moneyRow1 = document.createElement('div');
+//                             moneyRow1.textContent = 'Row 1 Content';
+//                             moneyRow1.className = 'mealRow1'
+//                             mealCell.appendChild(moneyRow1);
+//                             moneyRow1.style.borderBottom = '1px solid #000';
+
+//                             const moneyRow2 = document.createElement('div');
+//                             moneyRow2.textContent = 'Row 2 Content';
+//                             mealCell.appendChild(moneyRow2);
+
+//                             // Create two rows within the dnCell
+//                             const dnRow1 = document.createElement('div');
+//                             dnRow1.textContent = 'D';
+//                             dnRow1.className = 'dnRow1'
+//                             dnCell.appendChild(dnRow1);
+
+
+//                             const dnRow2 = document.createElement('div');
+//                             dnRow2.textContent = 'N';
+//                             dnRow2.className = 'dnRow2';
+//                             dnCell.appendChild(dnRow2);
+
+
+
+
+//                             // mealCell = document.createElement('table');
+//                             // const mealRow = mealCell.insertRow();
+//                             // const DmealCell = mealRow.insertCell(0);
+//                             // // const mealRow2 = mealCell.insertRow();
+//                             // const NmealCell = mealRow.insertCell(1);
+
+
+//                             // dnCell = document.createElement('table');
+//                             // const dnRow = dnCell.insertRow();
+//                             // const dayCell = dnRow.insertCell(0);
+//                             // // const dnRow2 = dnCell.insertRow();
+//                             // const nightCell = dnRow.insertCell(1);
+//                             // dayCell.innerHTML = "D";
+//                             // nightCell.innerHTML = "N";
+
+
+
+
+
+//                             const button = document.createElement('BUTTON');
+
+
+//                         });
+
+//                     }
+//                 } catch (error) {
+//                     console.log(error);
+//                 }
+
+//             }
+
+//             fetchAndDisplayMeal();
+
+//             startMealBtn.addEventListener("click", async () => {
+//                 try {
+
+//                     displyStartDate();
+//                     fetchAndDisplayMeal();
+//                     addColumnWithDay();
+
+
+//                 } catch (error) {
+//                     console.log(error);
+//                 }
+//             })
+
+
+
+
+
+//             // const mealCellTable = document.querySelector('.mealCellTable');
+//             // const dateRow = document.getElementById('dateHeadCell');
+//             // const totalMealCell = document.getElementById('totalMeal');
+
+//             // const addColumnWithDay = () => {
+//             //     const mealCellTable = document.querySelector('.mealCellTable');
+//             //     currDate = new Date();
+//             //     const dayString = currDate.toLocaleDateString('en-US', {day: '2-digit' });
+
+//             //     const dayCell = document.createElement('td');
+
+//             //     dayCell.textContent = dayString;
+
+//             //     dateRow.appendChild(dayCell);
+
+
+
+//             // }
+
+//             // addColumnWithDay();
+
+//             // setInterval(() => {
+//             //     const currDate = new Date();
+//             //     if(currDate.getHours() === 0 && currDate.getMinutes() === 0) {
+//             //         addColumnWithDay();
+//             //     }
+//             // }, 60000);
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Function to add a new column with checkboxes in moneyCell
+// function addNewMoneyColumn(mealCell) {
+//     const moneyColumn = document.createElement('div');
+//     moneyColumn.classList.add('money-column');
+
+//     // Create a checkbox for each row
+//     const numRows = moneyCell.querySelectorAll('.money-row').length;
+//     for (let i = 0; i < numRows; i++) {
+//         const checkbox = document.createElement('input');
+//         checkbox.type = 'checkbox';
+//         checkbox.classList.add('money-checkbox');
+//         moneyColumn.appendChild(checkbox);
+//     }
+
+//     moneyCell.appendChild(moneyColumn);
+// }
+
+// // Function to add a new column every day at 12 AM
+// function addNewMoneyColumnDaily() {
+//     const currentDate = new Date();
+//     const currentHour = currentDate.getHours();
+//     const currentMinute = currentDate.getMinutes();
+
+//     // Check if it's 12 AM
+//     if (currentHour === 0 && currentMinute === 0) {
+//         const moneyCells = document.querySelectorAll('.money-cell');
+
+//         moneyCells.forEach((moneyCell) => {
+//             addNewMoneyColumn(moneyCell);
+//         });
+//     }
+
+
+// }
+
+
+
+
+
+
+
+// // const groupNameInput = document.getElementById('groupNameInput');
+// // const groupName = groupNameInput.value.trim();
+// // console.log(groupNameInput);
+// // console.log(groupName);
+// // async function toggleMember() {
+// //     console.log('toggleMember Running');
+// //     const memberName = document.getElementById('memberName');
+
+
+// //     const groupName = groupNameInput.value;
+// //     memberName.innerHTML = '<option value="">Select Your Name</option>'
+
+// //     try {
+// //         const response = await fetch(`/getMembersForReg?groupName=${groupName}`);
+// //         if(response.ok) {
+// //             const data = await response.json();
+// //             const existMembers = data.groupMembers;
+
+// //             existMembers.forEach((member, index) => {
+// //                 console.log(member.name);
+// //                 const option = document.createElement('option');
+// //                 option.value = member.name;
+// //                 option.textContent = member.name;
+
+// //                 memberName.appendChild('option');
+// //             });
+
+// //         }
+// //     } catch (error) {
+// //         console.log(error);
+// //     }
+// // }
+
+// // groupName.addEventListener("change", toggleMember());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// async function fetchGroupName(){
+//     try {
+//         const response = await fetch('/getGroupName');
+//         if(response.ok){
+//             const data = await response.json();
+//             if(data.groupName) {
+//                 console.log(data.groupName);
+//                 return data.groupName;
+//             }
+//         }
+//         console.log('not GroupName');
+//         return 'DefaultGroupName';
+//     } catch (error) {
+//         console.log(error);
+//         return 'DefaultGroupName';
+//     }
+// }
+
+
+
+
+
+
+
+
+
+// mealTable.querySelectorAll('.meal-row').forEach((mealRow, index) => {
+        //     const checkboxId = `${data.groupMembers[index].name}d${day}`;
+        //     mealRow.innerHTML += `
+        //         <div id="mealRow${index + 1}">
+        //             <div id="dateDigit${day}" class="date-digit right-border centerAligne">
+        //                 <input id="${checkboxId}" type="checkbox" class="mealCheck-box right-border centerAligne">
+        //             </div>
+        //         </div>
+        //     `;
+        // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        fetch('/api/getInitialData')
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.success) {
+                    mealTable.classList.remove('hidden'); // Display the table
+                    const currentDate = new Date();
+                    const currentDay = currentDate.getDate();
+
+
+                    console.log(data.groupMembers[0].email);
+
+        //             dateHeadCells.innerHTML += `
+        //     <div id="dateDigit${day}" class="date-digit right-border centerAligne">${day}</div>
+        // `;
+        
+        // Add the checkbox for each group member for the current date
+
+
+        // data.groupMembers.forEach(member => {
+
+        //     const meal = member.meal;
+        //     const mealRow1 = document.getElementById(`mealRow1-${member.name}`);
+        //     const mealRow2 = document.getElementById(`mealRow2-${member.name}`);
+        //     const checkBoxArea1 = document.createElement('div');
+        //     checkBoxArea1.className = 'date-digit right-border centerAligne';
+        //     checkBoxArea1.innerHTML = `<input id="${member.name}d${day}" type="checkbox" class="mealCheck-box right-border centerAligne"></input>`;
+        //     mealRow1.appendChild(checkBoxArea1);
+        //     const checkBoxArea2 = document.createElement('div');
+        //     checkBoxArea2.className = 'date-digit right-border centerAligne';
+        //     checkBoxArea2.innerHTML = `<input id="${member.name}n${day}" type="checkbox" class="mealCheck-box right-border centerAligne"></input>`
+        //     mealRow2.appendChild(checkBoxArea2);
+        //     // meal.push({Day: 'false'});
+        //     // meal.push({Night: 'false'});
+            
+        // })
+
+
+                } else {
+                    console.error('Failed to fetch initial data');
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching initial data:', error);
+            });
+
+
+
+
+
+            console.log("if running");
+            
+            addDateBoxAndCheckbox(currentDay);
+            localStorage.setItem('lastCheckedDay', currentDay);
+            localStorage.setItem('lastCheckedMonth', currentMonth);
+
+
+
+
+
+
+
+
+
+
+            function addDateBoxAndCheckbox(day) {
+
+        // Add the dateBox for the current date
+
+        console.log('thisis running now i am happy the day is:'+day);
+
+
+        fetch('/storeMeal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ day })
+        })
+        .then(response => {
+            if(response.ok) {
+                response.json({message: 'Meal Store Successfully'});
+            }
+        })
+        
+
+
+
+        
+    }
+
+
+
+
+
+    <div class="row1 centerAligne bottom-border">D</div>
+                            <div class="row2 centerAligne">N</div>
+
+
+
+
+
+
+
+
+
+
+
+                            groupMembers[0].meal.forEach((date, index) => {
+                        const mealTableRow = document.getElementById(`mealTableRow-${groupMembers[groupMembersLeng-1].name}`);
+                        const mealArea = document.getElementById(`meal-row-${groupMembers[groupMembersLeng-1].name}`);
+                        mealTableRow.className = 'mealRows last';
+                        mealArea.className = 'meal-row last';
+
+                        const slRow = document.getElementById(`slRow-${groupMembers[groupMembersLeng-1].name}`);
+                        const nameRow = document.getElementById(`nameRow-${groupMembers[groupMembersLeng-1].name}`);
+                        const dnRow = document.getElementById(`dnRow-${groupMembers[groupMembersLeng-1].name}`);
+                        slRow.className = 'sl-no last';
+                        nameRow.className = 'names-row last';
+                        dnRow.className = 'dn-row last';
+                        console.log(mealArea);
+                        
+                        // const newBtnDiv = document.createElement('div');
+                        // newBtnDiv.className = 'mealSaveArea';
+                        // const mealSaveBtn = document.createElement('button');
+                        // mealSaveBtn.className = 'mealSaveBtn';
+                        // mealSaveBtn.id = `mealSaveBtn-${index+1}`;
+                        // mealSaveBtn.textContent = 'Save';
+                        // newBtnDiv.appendChild(mealSaveBtn);
+                        // mealArea.appendChild(newBtnDiv);
+                        
+                    })
+
+
+
+
+
+                    mongoosse.connect("mongodb://127.0.0.1:27017/Meal_Count", {
+    useNewUrlParser: true,
+    useUnifiedTopology:true,
+}).then(() => {
+    console.log(`connection sucessful`);
+}).catch((e) => {
+    console.log(e);
+    console.log("no connection");
+})
+
+
+meal:[{Day: false, Night: false, day: day}]
+
+mealSave:[null],

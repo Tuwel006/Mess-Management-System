@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>See Meal List</title>
+</head>
+<body>
+    <div class="webpageD">
+        {{>header}}
+    <main>
+        <table id="mealTable">
+            <thead id="th-mealTable">
+                    <th>Sl No</th>
+                    <th>Name</th>
+                    <th id="dnHead">
+                        <div class="row1 centerAligne">D/N</div>
+                        <div class="centerAligne">Date</div>
+                        
+                    </th>
+                    <th id="mealhead">
+                        <div id="mealTitleCell" class="centerAligne bottom-border">Meal</div>
+                        
+                        <div id="dateHeadCells">
+                            
+                        </div>
+                        
+                    </th>
+                    <th id="totalMeal">Total Meal</th>
+            </thead>
+            <tbody id="mealTableBody">
+                {{#each groupMembers}} 
+                <tr id="mealTableRow-{{this.name}}" class="mealRows">
+                    <td  class="sl-no" id="slRow-{{this.name}}">{{increment @index}}</td>
+                    <td class="names-row" id="nameRow-{{this.name}}">{{this.name}}</td>
+                    <td class="dn-row" id="dnRow-{{this.name}}">
+                        <div class="row1">D</div>
+                        <div class="row2">N</div>
+                    </td>
+                    <td class="meal-row" id="meal-row-{{this.name}}">
+                        <div id="mealRow1-{{this.name}}" class="row1 mealCheck bottom-border">
+                            {{!-- <div id="dateDigit11" class="date-digit right-border centerAligne">
+                                <input id="{{this.name}}d1" type="checkbox" class="mealCheck-box right-border centerAligne"></input>
+                            </div> --}}
+                        </div>
+                        
+                        <div id="mealRow2-{{this.name}}" class="row2 mealCheck">
+                            {{!-- <div id="dateDigit21" class="date-digit right-border centerAligne">
+                                <input id="{{this.name}}n1" type="checkbox" class="n1 mealCheck-box right-border centerAligne"></input>
+                            </div> --}}
+                        </div>
+                    </td>
+                        
+                    
+                    <td id="totalMeal-{{this.name}}" class="totalMeal-row">Total Meal</td>
+                </tr>
+                
+                {{/each}}
+                </tbody>
+    </main>{{>footer}}
+    </div>  
+    
+    {{>menu}}
+    <script src="script.js"></script>
+</body>
+</html>

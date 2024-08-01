@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="webpage">
+        {{>header}}
+    <div class="overlay hidden" id="nameTableArea"></div>
+    <main>
+        <div class="table-container">
+            <div id="nameTableContainer" class="slidable-wraper deposit-area">
+            <table id="table-moneyDeposit">
+                <thead id="th-moneyDeposit">
+                    <th>Sl No</th>
+                    <th>Name</th>
+                    <th>Deposit Money</th>
+                    <th>Total Money</th>
+                </thead>
+                <tbody id="nameTable">
+
+                </tbody>
+            </table>
+            
+        </div>
+        </div>
+
+    </main>
+
+    {{>footer}}
+    </div>   
+    {{>menu}}
+    <script src="script.js"></script>
+</body>
+</html>

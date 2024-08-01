@@ -1,0 +1,39 @@
+<i class="fa-solid fa-user" style="color: #ffffff;"></i> //profile
+<i class="fa-solid fa-envelope" style="color: #ffffff;"></i> //email
+<i class="fa-solid fa-unlock-keyhole" style="color: #ffffff;"></i> //passwors
+<i class="fa-solid fa-phone" style="color: #ffffff;"></i> //phone
+<i class="fa-solid fa-user-group" style="color: #ffffff;"></i> //group
+
+
+
+
+
+
+
+
+
+
+
+
+else if(data === 'true') {
+                        fetch('/mealSaveFlag', {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ index }),
+                        })
+                        .then(response => {
+                            if(response.ok) {
+                                console.log("Meal Flag Saved");
+                            }
+                        })
+                        console.log("Else is Fire, Edit button Clicked Data: "+ data)
+                        await mealBoxCheck();
+                        mealBtns.textContent = 'Save';
+                        await totalMeal();
+                    }
+
+
+
+                    console.log("GroupMemberID: "+groupMembers._id+" === "+ req.userId);
