@@ -3,7 +3,7 @@ const async = require('hbs/lib/async.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
-const DB = 'mongodb+srv://tu527350:wCMp5fa8SE4Ul9Ru@cluster0.9ojksya.mongodb.net/Meal_Count?retryWrites=true&w=majority&appName=Cluster0';
+const DB = process.env.DB;
 
 mongoosse.connect(DB).then(()=>{
     console.log("connection Successful");

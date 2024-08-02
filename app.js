@@ -14,6 +14,12 @@ const rateLimit = require('express-rate-limit');
 
 const axios = require('axios');
 const nodemailer = require('nodemailer');
+// server.js
+const connectionState = require('./connectionState');
+
+console.log(connectionState.getState());  // Outputs: connected
+connectionState.setState('disconnected');
+console.log(connectionState.getState());  // Outputs: disconnected
 
 let userAdmin;
 
