@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
+const mongoosse = require('mongoose');
 
 // const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
@@ -32,6 +33,19 @@ let userAdmin;
 
 
 const port = process.env.PORT || 3000;
+
+
+const DB = process.env.DB;
+
+mongoosse.connect(DB,{
+    useNewUrlParser: true,
+      useUnifiedTopology: true,
+}
+).then(()=>{
+    console.log("connection Successful");
+}).catch((error)=>{
+    console.log(error);
+})
 
 
 const static_path = path.join(__dirname, './public');
