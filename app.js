@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const http = require('http').Server(app);
+
 
 const rateLimit = require('express-rate-limit');
 
@@ -170,7 +170,7 @@ app.get('/', (req, res) => {
         res.render('home', {flag});
     }
     else{
-        res.sendFile(path.join(__dirname, 'public', 'default.html'));
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
     }
          
 })
