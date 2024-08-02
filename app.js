@@ -170,7 +170,7 @@ app.get('/', (req, res) => {
         res.render('home', {flag});
     }
     else{
-        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+        res.sendFile(path.join(__dirname, 'public', 'default.html'));
     }
          
 })
