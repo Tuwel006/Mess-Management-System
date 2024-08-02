@@ -2,6 +2,7 @@ const mongoosse = require('mongoose');
 const async = require('hbs/lib/async.js');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 
 const DB = process.env.DB;
 
