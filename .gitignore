@@ -1,34 +1,3 @@
 # Node modules
 node_modules/
-connectionState.js
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment variables
 .env
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Build directories
-dist/
-build/
-
-# IDE specific files
-.idea/
-.vscode/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-
-# Optional npm cache directory
-.npm
-
-# MacOS files
-.DS_Store
