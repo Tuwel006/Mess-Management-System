@@ -23,7 +23,6 @@ const nodemailer = require('nodemailer');
 // console.log(connectionState.getState());  // Outputs: disconnected
 
 let userAdmin;
-let andom;
 
 // const async = require('hbs/lib/async.js');
 // const { NONAME } = require('dns');
