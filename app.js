@@ -8,14 +8,27 @@ const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
-
-
+const session = require('express-session');
+const crypto = require('crypto');
 const rateLimit = require('express-rate-limit');
 
-
+const axios = require('axios');
 const nodemailer = require('nodemailer');
 // server.js
+const connectionState = require('./connectionState');
 
+console.log(connectionState.getState());  // Outputs: connected
+connectionState.setState('disconnected');
+console.log(connectionState.getState());  // Outputs: disconnected
+
+let userAdmin;
+
+
+const async = require('hbs/lib/async.js');
+const { NONAME } = require('dns');
+const { Console, error, group } = require('console');
+const { verify } = require('crypto');
+const { availableParallelism } = require('os');
 
 
 const port = process.env.PORT || 3000;
