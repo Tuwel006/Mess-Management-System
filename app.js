@@ -56,22 +56,7 @@ hbs.registerHelper('increment', (value) => value + 1);
 
 
 
- 
 
-
-
-
-app.get('/run-server-file', (req, res) => {
-    exec('node your-server-file.js', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`exec error: ${error}`);
-            return res.status(500).send('Error running server file');
-        }
-        console.log(`stdout: ${stdout}`);
-        console.error(`stderr: ${stderr}`);
-        res.send('Server file run successfully');
-    });
-});
 
 app.use((req, res, next) => {
     const token = req.cookies.jwt;
@@ -83,7 +68,7 @@ app.use((req, res, next) => {
             req.isAuthenticated = true;
             req.userId = verifyUser._id;
             
-           
+           res.sendStatus(200);
         } catch (error) {
             req.isAuthenticated = false;
         }
