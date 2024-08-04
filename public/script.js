@@ -97,8 +97,6 @@ const cros=document.getElementById('cross');
             profileImg.textContent = userName.charAt(0).toUpperCase();
             profileImg.style.color = randomColor;
             userNameArea.textContent = userName;
-            console.log(userName);
-            console.log(userName[0]);
         }
         profileView();
         function getRandomColor() {
@@ -111,6 +109,37 @@ const cros=document.getElementById('cross');
         }
 }
 
+if(currPath === '/register' || currPath === '/login'){
+    function formCheck() {
+        try {
+            const form = document.querySelector('form');
+        const errorMessage = document.getElementById('error-message');
+        console.log("form: "+form);
+        form.addEventListener('submit', (event) => {
+            let isValid = true;
+            const inputs = form.querySelectorAll('input[required]');
+    
+            inputs.forEach(input => {
+                console.log(input);
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.border = '1px solid red';
+                } else {
+                    input.style.border = '';
+                }
+            });
+    
+            if (!isValid) {
+                event.preventDefault();
+                errorMessage.textContent = 'Please fill out all required fields.';
+            }
+        });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+    formCheck();
+}
 
 
 if(currPath === '/register') {
@@ -141,7 +170,7 @@ if(currPath === '/register') {
         
         const email = document.getElementById('email').value.trim();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    console.log("Otp Send Function");
+
         // Validate mobile number
         if (email === '' || !emailRegex.test(email)) {
             alert('Please enter a valid Email.');
@@ -165,7 +194,7 @@ if(currPath === '/register') {
                 
 
                     let countdown = setInterval(()=>{
-                        console.log("Set Interval Running.."+timeMin+" "+timeSec);
+                       
                         otpText.innerText = `Resen OTP after ${timeMin}. ${timeSec}`;
                         timeSec--;
                         
@@ -229,9 +258,9 @@ if(currPath === '/register') {
 
 
     const groupNameInput = document.getElementById('groupNameInput');
-    console.log(groupNameInput);
+ 
     async function toggleMember() {
-        console.log('toggleMember Running');
+        
         const memberName = document.getElementById('memberName');
 
 
@@ -246,7 +275,7 @@ if(currPath === '/register') {
                 const existMembers = data.groupMembers;
 
                 existMembers.forEach((member, index) => {
-                    console.log(member.name);
+                    
                     if(!member.email){
                         const option = document.createElement('option');
                     option.value = member.name;
@@ -300,14 +329,14 @@ async function fetchAndDisplayNames() {
                 // console.log('One more time'+member.name);
                 slCell.textContent = index+1;
                 slCell.className = 'slCell';
-                console.log(member.Admin);
+               
                 if(member.Admin===true){
                     nameCell.textContent = member.name+"*";
-                    console.log("if"+nameCell);
+                
                 }
                 else{
                     nameCell.textContent = member.name;
-                    console.log("else"+nameCell);
+                  
                 }
                 nameCell.id = `nameCell-${member.name}`;
                 nameCell.className = 'nameCell';
@@ -335,7 +364,7 @@ async function fetchAndDisplayNames() {
                 const newNameCell = document.getElementById(`nameCell-${member.name}`);
                 if(currPath ==="/moneydeposit"){
                     newNameCell.addEventListener('mousedown', ()=> {
-                        console.log(member.Admin);
+                       
                         
                         holdTimer = setTimeout(()=>{
                             
@@ -353,7 +382,7 @@ async function fetchAndDisplayNames() {
                             newTable.appendChild(adminBtn);
                             adminBtn.classList.add('focus');
                             adminBtn.addEventListener('click', ()=> {
-                                console.log("clicked");
+                               
                                 const cnfmArea = document.createElement("div");
                                 if(member.Admin===true){
                                     cnfmArea.textContent = `Do You want to Remove Adimin to ${member.name}`;
@@ -386,7 +415,7 @@ async function fetchAndDisplayNames() {
                                 cancelBtn.style.backgroundColor = "red";
                                 yesBtn.addEventListener("click", ()=> {
                                     let adminValue;
-                                    console.log("Yes Button Clicked");
+                                  
                                     if(member.Admin === true){
                                         adminValue = false;
                                     }
@@ -442,7 +471,7 @@ fetchAndDisplayNames();
 
 if(currPath==="/moneydeposit"){
     addNew.addEventListener("click", async () => {
-        console.log("this is running")
+      
         inputBox.classList.remove('hidden');
         addNew.classList.add('hidden');
     
@@ -519,7 +548,7 @@ if(currPath==="/moneydeposit"){
                 const addMoneyBtns = document.getElementById(`addMoneyBtn-${member.name}`);
                 // console.log(addMoneyBtns);
                 addMoneyBtns.addEventListener("click", () => {
-                    console.log(addMoneyBtns.value);
+                   
                     addMoney(addMoneyBtns.value);
                 })
             })
@@ -597,7 +626,7 @@ async function populateMoney() {
         }
     })
     .then(group => {
-console.log("Group is This: "+group);
+
         const groupMembers = group.groupMembers;
     groupMembers.forEach(member => {
         const displayMoney = document.getElementById(`displayMoney-${member.name}`);
@@ -697,7 +726,7 @@ else if(currPath === '/addmeal'){
                 })
                 .then(response => {
                     if(response.ok) {
-                        console.log('first fetch of stop running');
+                        
         
                         const mealTable = document.getElementById('mealTable');
                         mealTable.classList.add('hidden');
@@ -754,9 +783,9 @@ else if(currPath === '/addmeal'){
                 body: JSON.stringify({ day }),
             })
             .then(response => {
-                console.log('In response');
+                
                 if(response.ok) {
-                    console.log('second fetch running in start btn');
+                    
                     const currentDate = new Date();
             
                     
@@ -791,9 +820,9 @@ groupFetch();
             })
             .then(group => {
                 group.mealSave.forEach((data, indx) => {
-                    console.log('DATA is: '+data);
+                   
                     if(data === 'false' || data === null){
-                        console.log("NULL Running");
+                    
                         const mealBtnCell = document.getElementById('mealBtnCell');
                     const mealBtnArea = document.createElement('div');
                     mealBtnArea.innerHTML = `<button class = "mealBtn" id = "mealBtn-${indx+1}">Save<button>`
@@ -804,7 +833,7 @@ groupFetch();
                     mealBtnCell.appendChild(mealBtnArea);
                     }
                     else{
-                        console.log("else is fire..........")
+                      
                         const mealBtnCell = document.getElementById('mealBtnCell');
                     const mealBtnArea = document.createElement('div');
                     mealBtnArea.innerHTML = `<button class = "mealBtn" id = "mealBtn-${indx+1}">Edit<button>`
@@ -838,12 +867,12 @@ function mealSaveBtnEffect() {
             const mealBtns = document.getElementById(`mealBtn-${index+1}`);
             
                 mealBtns.addEventListener('click', async (e) => {
-                    console.log("Meal Save BTN Clicked");
+              
                     e.preventDefault();
                     
-                     console.log('Meal Buttons Values: '+(data));
+                    
                     if(data === null || data === 'false') {
-                        console.log("meal save condition fire..");
+                     
                         const groupMembers = group.groupMembers;
                         let myMeal = [{
                             Day:Boolean,
@@ -854,9 +883,7 @@ function mealSaveBtnEffect() {
                                 const chBoxD = document.getElementById(`${member.name}${index+1}d`);
                                 const chBoxN = document.getElementById(`${member.name}${index+1}n`);
                                 if(chBoxD && chBoxN){
-                                    console.log(`${member.name}${index+1}d`);
-                                console.log(`${member.name}${index+1}n`);
-                                console.log(chBoxD+"  "+chBoxN);
+                                    
                                 const dVal = chBoxD.checked;
                                 const nVal = chBoxN.checked;
                                 // console.log(`Day Value: ${dVal} and Night Value: ${nVal}`);
@@ -875,7 +902,7 @@ function mealSaveBtnEffect() {
                     })
                     .then(response => {
                         if(response.ok) {
-                            console.log("Meal was Saved on Data Base");
+                            
                         }
                     })
                     await mealBoxCheck();
@@ -906,7 +933,7 @@ function mealSaveBtnEffect() {
                         })
                         .then(response => {
                             if(response.ok) {
-                                console.log("Meal Save Status changed to True");
+                             
                                 mealBtns.textContent = 'Save';
                             }
                         })
@@ -924,7 +951,7 @@ function mealSaveBtnEffect() {
 //Disply Table Function
 
 function populateDateAndBox() {
-    console.log('PopulateDateAndBox RUNNING -->>')
+  
     
 
 
@@ -932,14 +959,14 @@ function populateDateAndBox() {
             .then((response) => response.json())
             .then((data) => {
                 if (data.success) { 
-console.log("Fetching Sucess..");
+
                     const groupMembers = data.groupMembers;
                     const isEqual = localStorage.getItem('isEqual');
                     
                     const mealForDate = groupMembers[0].meal;
-                    console.log("meal[]"+mealForDate);
+                 
                     mealForDate.forEach((date, index) => {
-                        console.log("meal[] have data.")
+                       
                         const crrday = date.day;
                         const dateCell = document.createElement('div');
                         dateCell.className = 'date-digit right-border centerAlign'
@@ -1027,7 +1054,7 @@ async function mealBoxCheck() {
                     nBox.checked = date.Night;
                     dBox.removeAttribute('disabled');
                     nBox.removeAttribute('disabled');
-                    console.log("Project Enabled"+nBox);
+                  
                 }
             }) 
         })
@@ -1069,7 +1096,7 @@ totalMeal();
             })
             .then(response => {
                 if(response.ok) {
-                    console.log('respos is ok');
+                    
                     return response.json();
                 }
             })
@@ -1077,9 +1104,9 @@ totalMeal();
                 const data = group.mealStartDate;
                 const mealStartBtn = document.getElementById(`${group.groupName}start`);
                 const mealStopBtn = document.getElementById(`${group.groupName}stop`);
-                console.log("DATA"+data);
+                
                 if(data.day!==null){
-                    console.log('Table is showing');
+                    
                     populateDateAndBox();
                     const mealTable = document.getElementById('mealTable');
                     mealTable.classList.remove('hidden');
@@ -1087,7 +1114,7 @@ totalMeal();
                     mealStopBtn.classList.remove('hidden');
                 }
                 else{
-                    console.log("xxx Table Not Showing xxx");
+                    
         
                     const mealTable = document.getElementById('mealTable');
                     mealTable.classList.add('hidden');
@@ -1125,7 +1152,7 @@ totalMeal();
                 const depositBtnArea = document.createElement('div');
                 if(currPath ==='/spendmoney'){
                     
-                console.log("SPEND MONEY BUtton Creat");
+               
                 depositBtnArea.className = 'depositBtnsArea';
 
                 const depositBtns = document.createElement('button');
@@ -1156,7 +1183,7 @@ totalMeal();
 
 
         
-            console.log("SPEND BUTTON")
+            
             async function spendBtnsFun() {
                 if(currPath === '/spendmoney'){
                 const response = await fetch('/getgroups');
@@ -1206,7 +1233,7 @@ totalMeal();
 
 
     else if(currPath === '/'){
-        console.log("Home");
+      
         async function populateHome() {
             try {
                 const mydiv = document.createElement('div');
@@ -1215,7 +1242,7 @@ totalMeal();
                 mealValueArea.appendChild(mydiv);
                 const response1 = await fetch('/getgroups');
             const group = await response1.json();
-            console.log(group);
+           
             const response2 = await fetch('/getUser');
             const user = await response2.json();
 
@@ -1233,7 +1260,7 @@ totalMeal();
             const totalMealContainer = document.getElementById('tmeal');
 
             const yourMealAmount = parseFloat((totalSpend/totalMeal)*user.tmeal);
-            console.log("Your Meal Amount: "+yourMealAmount);
+           
             mealCharge.textContent = parseFloat(totalSpend/totalMeal);
             totalDepositContainer.textContent = totalDeposit;
             totalSpendContainer.textContent = totalSpend;
@@ -1241,9 +1268,9 @@ totalMeal();
             pMealAmount.textContent = yourMealAmount;
             mydiv.classList.add('hidden');
 
-            console.log("AdminValue: "+user.Admin)
+            
                 if(user.Admin === true) {
-                    console.log("if Exicute");
+                
                     const editArea = document.getElementById("editArea");
                     editArea.classList.remove("hidden");
                 }
@@ -1265,7 +1292,7 @@ totalMeal();
     let expanded = false;
     let height;
     upDownBtn.addEventListener('click', function() {
-        console.log("UPDownBtn Clicked");
+    
         if (expanded) {
             if (window.innerWidth < 768) {
                 listContainer.style.maxHeight = '40px';
@@ -1485,4 +1512,3 @@ async function totalMeal() {
 
 totalMeal();
 }
-console.log("cuurent Path: "+currPath);

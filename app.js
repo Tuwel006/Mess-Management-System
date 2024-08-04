@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const crypto = require('crypto');
 
 const rateLimit = require('express-rate-limit');
 
@@ -140,7 +140,7 @@ app.post('/send-otp', otpRateLimiter, (req, res) => {
             console.error('Error sending OTP:', error);
             return res.json({ success: false, message: 'Failed to send OTP. Please try again.' });
         } else {
-            console.log(`OTP sent to ${email}: ${info.response}`);
+      
             res.json({ success: true });
         }
     });
@@ -448,7 +448,7 @@ app.post('/login', async (req, res) => {
         passwordMatch = await bcrypt.compare(password, member.password);
 
         if(!passwordMatch){
-            return res.send('Invalid Email or password');          
+            return;          
         }
 
         const token = jwt.sign({ _id: member._id }, process.env.Secret_Key);
