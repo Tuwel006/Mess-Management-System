@@ -6,7 +6,7 @@ const hbs = require('hbs');
 const { Member, Flag } = require('./db/models/members');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
