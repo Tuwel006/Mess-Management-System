@@ -164,7 +164,7 @@ app.get('/', (req, res) => {
         res.render('home', {flag});
     }
     else{
-        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+        res.sendFile(path.join(__dirname, 'public', 'default.html'));
     }
          
 })
@@ -709,7 +709,6 @@ app.post('/addAmount', async (req, res) => {
 
 
 app.get('/getgroups', async (req, res) => {
-    console.log("Member: "+Member);
     try {
         const group = await Member.findOne({'groupMembers._id': req.userId});
         res.status(200).json(group);
