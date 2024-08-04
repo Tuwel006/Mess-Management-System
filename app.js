@@ -35,12 +35,7 @@ const port = process.env.PORT || 3000;
 
 const DB = process.env.DB;
 
-mongoose.connect(DB
-).then(()=>{
-    console.log("connection Successful");
-}).catch((error)=>{
-    console.log(error);
-})
+
 
 
 
@@ -154,7 +149,6 @@ app.post('/send-otp', otpRateLimiter, (req, res) => {
 
 
 
-   
 
 
 
@@ -163,13 +157,14 @@ app.post('/send-otp', otpRateLimiter, (req, res) => {
 
 
 app.get('/', (req, res) => {
-    
+    console.log("Authanticated: "+req.isAuthenticated);
     if(req.isAuthenticated){
+        console.log("home")
         const flag = "home";
         res.render('home', {flag});
     }
     else{
-        res.sendFile(path.join(__dirname, 'public', 'default.html'));
+        res.sendFile(path.join(__dirname, 'public', 'index.html'));
     }
          
 })
@@ -714,6 +709,7 @@ app.post('/addAmount', async (req, res) => {
 
 
 app.get('/getgroups', async (req, res) => {
+    console.log("Member: "+Member);
     try {
         const group = await Member.findOne({'groupMembers._id': req.userId});
         res.status(200).json(group);
