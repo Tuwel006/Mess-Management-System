@@ -27,6 +27,7 @@
     "mongoose": "^8.5.2",
     "nodemailer": "^6.9.14",
     "path": "^0.12.7",
-    "rate-limit": "^0.1.1"
+    "rate-limit": "^0.1.1",
+    "serve-favicon": "^2.5.0"
   }
 }

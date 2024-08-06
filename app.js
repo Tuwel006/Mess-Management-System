@@ -10,6 +10,7 @@ const bcrypt = require('bcryptjs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const crypto = require('crypto');
+const favicon = require('serve-favicon');
 
 const rateLimit = require('express-rate-limit');
 
@@ -57,7 +58,7 @@ hbs.registerHelper('json', function(context) {
     return JSON.stringify(context);
 });
 hbs.registerHelper('increment', (value) => value + 1);
-
+app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
 
 
 
