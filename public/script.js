@@ -2,17 +2,17 @@
 const loader = document.createElement("div");
     loader.className = 'pageLoader';
     const body = document.querySelector("body");
-    const webpage = document.querySelector(".webpage")
+    const webpage = document.querySelector("main");
     body.appendChild(loader);
     function hideLoader() {
         loader.style.display = 'none';
-        // webpage.style.filter = 'brightness(1)';
+        webpage.style.filter = 'brightness(1)';
     }
     function showLoader() {
         loader.style.display = 'flex';
     }
 window.addEventListener("load", ()=>{
-    // webpage.style.filter= 'brightness(0.5)';
+    webpage.style.filter= 'brightness(0.5)';
     setTimeout(hideLoader, 100);
 })
 
@@ -292,6 +292,8 @@ if(currPath === '/register') {
         }
     }
 
+
+
     groupNameInput.addEventListener("change", toggleMember);
 
 }
@@ -405,14 +407,18 @@ async function fetchAndDisplayNames() {
                                 cancelBtn.style.transitionDelay = "1s";
                                 yesBtn.style.transitionDelay = "1s";
                                 cnfmArea.style.backgroundColor = 'black';
-                                cnfmArea.style.color = 'white';
+                                cnfmArea.style.color = 'yellow';
+                                cnfmArea.style.fontSize = '1.3rem'
                                 cnfmArea.classList.add("transition");
                                 cnfmArea.offsetHeight;
-                                cnfmArea.style.height = "150px";
-                                yesBtn.style.margin = '10px'
+                                cnfmArea.style.height = "100px"
+                                
+                                yesBtn.style.fontWeight = 'bold'
                                 cancelBtn.style.margin = '10px'
-                                yesBtn.style.backgroundColor = "green";
-                                cancelBtn.style.backgroundColor = "red";
+                                yesBtn.style.color = "green";
+                                yesBtn.style.margin = "40px 40px 0px 0px";
+                                cancelBtn.style.color = "red";
+                                cancelBtn.style.fontWeight = 'bold';
                                 yesBtn.addEventListener("click", ()=> {
                                     let adminValue;
                                   
@@ -439,6 +445,9 @@ async function fetchAndDisplayNames() {
                                 })
                                 location.reload();
                                     
+                                 })
+                                 cancelBtn.addEventListener("click",()=>{
+                                    location.reload();
                                  })
                                 
                             })
@@ -514,6 +523,7 @@ if(currPath==="/moneydeposit"){
                 displyMoney.className = 'displayMoney';
                 displyMoney.id = `displayMoney-${name}`;
                 slCell.textContent = nameTable.rows.length;
+                
                 nameCell.textContent = name;
                 nameCell.className = 'nameCell';
                 slCell.className = 'slCell';
@@ -703,9 +713,11 @@ else if(currPath === '/addmeal'){
         mealStopBtn.addEventListener("click", () => {
             const webpage = document.querySelector('main');
             const cnfArea = document.createElement('div');
-            cnfArea.style.height = "70px";
+            cnfArea.style.height = "100px";
+            cnfArea.style.fontSize = '1.3rem';
+            cnfArea.style.fontWeight = 'bold';
             cnfArea.classList.add('transition');
-            cnfArea.innerHTML = `<p>Are you sure you want clear all data?</p>`;
+            cnfArea.textContent = `Are you sure you want clear all data?`;
             const yesBtn = document.createElement('button');
             const noBtn = document.createElement('button');
             yesBtn.textContent ="YES";
@@ -717,9 +729,9 @@ else if(currPath === '/addmeal'){
             webpage.appendChild(cnfArea);
             btnArea.style.display = "flex";
             btnArea.style.justifyContent= "space-around";
-            btnArea.marginTop = "20px";
+            btnArea.style.margin = "40px 40px 0px";
             cnfArea.style.backgroundColor = "black";
-            cnfArea.style.color = "white";
+            cnfArea.style.color = "red";
             yesBtn.addEventListener("click", ()=>{
                 fetch('/mealStop', {
                     method: "POST",
@@ -821,7 +833,7 @@ groupFetch();
             .then(group => {
                 group.mealSave.forEach((data, indx) => {
                    
-                    if(data === 'false' || data === null){
+                    if(data === 'false' || data === 'null'){
                     
                         const mealBtnCell = document.getElementById('mealBtnCell');
                     const mealBtnArea = document.createElement('div');
@@ -871,7 +883,7 @@ function mealSaveBtnEffect() {
                     e.preventDefault();
                     
                     
-                    if(data === null || data === 'false') {
+                    if(data === 'null' || data === 'false') {
                      
                         const groupMembers = group.groupMembers;
                         let myMeal = [{
