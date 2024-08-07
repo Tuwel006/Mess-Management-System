@@ -127,7 +127,7 @@ app.post('/send-otp', otpRateLimiter, (req, res) => {
     const expires = Date.now() + 60000;
 
     otpStore[email] = { hashedOtp, expires };
-
+    console.log("OTP: "+otp);
     // Send OTP via Nodemailer
     const mailOptions = {
         from: 'ali18sabbir@gmail.com', // Replace with your email
@@ -374,8 +374,10 @@ app.post('/register', async(req, res) => {
     if(!name1 && !name2){
         res.status(400).send("Name is required");
     }
+    if( password.length<6){
+        res.send("Passworrd should be grater than 6-digit.");
+    }
     const nameToSave = name1 || name2;
-    
     if(password == cpassword){
         const passwordHash = await bcrypt.hash(password, 10);
         const existingGroup = await Member.findOne({groupName});
@@ -986,7 +988,7 @@ const sendMessage= async ()=>{
                     transporter.sendMail(mailCalculations, (error, info) => {
                         if (error) {
                             console.error('Error sending message:', error);
-                            return res.json({ success: false, message: 'Failed to send OTP. Please try again.' });
+                            return res.json({ success: false, message: 'Failed to send a message' });
                         } 
                     });
                 }

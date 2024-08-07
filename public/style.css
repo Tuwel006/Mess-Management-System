@@ -1307,9 +1307,19 @@ button{
         
     }
     #menuArea{
-        height: 90vh;
-        width: 50vw;
+        height: max-content;
+        width: 65vw;
         font-size: 0.6rem;
+    }
+    #cross{
+        font-size: 30px;
+        position: fixed;
+        left:65vw;
+        top: 5px;
+        padding: 5px;
+        display: none;
+        z-index: 100;
+        cursor: pointer;
     }
     .loader {
         border: 5px solid #f3f3f3; /* Light grey */
