@@ -32,7 +32,7 @@ const memberSchema = new mongoosse.Schema({
     totalDeposit: Number,
     totalSpend: Number,
 
-    mealSave: [],
+    mealSave: [{type: String}],
     // name: String,
     // password: String,
     // email: {type: String, unique: true},

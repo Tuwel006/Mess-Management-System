@@ -574,15 +574,15 @@ app.post('/storeDate', async (req, res) => {
     const day = currDate.getDate();
     const month = currDate.getMonth()+1;
     const year = currDate.getFullYear();
-    const userId = req.userId;
     try {
-        const group = await Member.findOne({'groupMembers._id': userId});
+        const group = await Member.findOne({'groupMembers._id': req.userId});
+        console.log(group);
         group.mealStartDate = {
             day,
             month,
             year,
         }
-        group.mealSave.push(null);
+        group.mealSave.push('null');
         group.groupMembers.forEach((member=>{
             member.meal.push({Day: false, Night: false, day: day});
         }))
@@ -642,8 +642,15 @@ app.post('/mealStop', async (req, res) => {
         const group = await Member.findOne({'groupMembers._id': req.userId});
         if(group) {
             group.mealSave = [];
+            group.spendMoney = [];
+            group.totalDeposit = 0;
+            group.totalMeal = 0;
+            group.totalSpend = 0;
             group.groupMembers.forEach(member => {
                 member.meal = [];
+                member.depositMoney = [];
+                member.tmeal = 0;
+                member.tdeposit = 0;
             })
             group.mealStartDate = {
                 day: null,

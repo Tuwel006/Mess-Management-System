@@ -738,7 +738,7 @@ else if(currPath === '/addmeal'){
                 })
                 .then(response => {
                     if(response.ok) {
-                        
+                        location.reload();
         
                         const mealTable = document.getElementById('mealTable');
                         mealTable.classList.add('hidden');
@@ -753,7 +753,7 @@ else if(currPath === '/addmeal'){
                         mealStopBtn.classList.add('hidden');
                     }
                 })
-                location.reload();
+                
             })
             noBtn.addEventListener('click', ()=> {
                 location.reload();
@@ -768,7 +768,7 @@ else if(currPath === '/addmeal'){
         
     // Meal Star function
         mealStartBtn.addEventListener('click', () => {
-            
+            location.reload();
             fetch('/storeDate', {
                 method: 'POST',
             })
@@ -832,7 +832,7 @@ groupFetch();
             })
             .then(group => {
                 group.mealSave.forEach((data, indx) => {
-                   
+                   console.log("MealSave: "+data);
                     if(data === 'false' || data === 'null'){
                     
                         const mealBtnCell = document.getElementById('mealBtnCell');
